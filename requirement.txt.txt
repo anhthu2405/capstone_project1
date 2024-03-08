@@ -1,0 +1,5 @@
+tk
+threading
+socket
+pycrypto
+pycryptodome
