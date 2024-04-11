@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chat-box {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        .message .username {
+            font-weight: bold;
+        }
+
+        .message .timestamp {
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        .message .content {
+            margin-left: 20px;
+        }
+
+        .input-group {
+            margin-top: 20px;
+        }
+
+        .input-group input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group button {
+            width: 28%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        <div class="input-group">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for handling chat functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            var chatBox = document.getElementById("chat-box");
+            var messageInput = document.getElementById("message-input");
+            var sendBtn = document.getElementById("send-btn");
+
+            // Function to add a new message to the chat box
+            function addMessage(username, message) {
+                var div = document.createElement("div");
+                div.classList.add("message");
+                div.innerHTML = "<span class='username'>" + username + "</span>: " + message;
+                chatBox.appendChild(div);
+            }
+
+            // Event listener for send button click
+            sendBtn.addEventListener("click", function() {
+                var message = messageInput.value.trim();
+                if (message !== "") {
+                    // You can send the message to the server using AJAX or WebSocket
+                    // For demonstration purposes, let's just add it to the chat box
+                    addMessage("You", message);
+                    messageInput.value = "";
+                }
+            });
+
+            // Simulate receiving a message (for demonstration purposes)
+            setTimeout(function() {
+                addMessage("Friend", "Hello! How are you?");
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
