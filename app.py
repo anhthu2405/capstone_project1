@@ -1,11 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from flask_session import Session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+import os
+import secrets
 
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'secret'
 app.config['SESSION_TYPE'] = 'filesystem'
+#Database information (online database for Thinh requirement)
+app.config['MYSQL_HOST'] = 'sql.freedb.tech'
+app.config['MYSQL_USER'] = 'freedb_project1'
+app.config['MYSQL_PASSWORD'] = 'a5pqFxA&GSZ$U6n'
+app.config['MYSQL_DB'] = 'freedb_project1_database'
+
+mysql = MySQL(app)
+
 
 Session(app)
 
