@@ -132,7 +132,7 @@ html {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .buttons button {
     font-size: 14px;
   }

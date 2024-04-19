@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 app_name = "registration"
 
 urlpatterns = [
-    path("", views.Base, name="base"),
+    path("", views.Home, name="home"),
     path("home", views.Home, name="home"),
     path("humans.txt", TemplateView.as_view(template_name="registration/humans.txt", content_type="text/plain")),
     path("robots.txt", TemplateView.as_view(template_name="registration/robots.txt", content_type="text/plain")),
